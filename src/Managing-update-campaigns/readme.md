@@ -20,4 +20,3 @@ operations are supported:
     session and Fragmentation session. The campaign completes once
     devices have reported their updated firmware version.
     
-    
