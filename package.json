@@ -1,0 +1,22 @@
+{
+  "name": "fuota-documentation",
+  "version": "0.0.1",
+  "description": "A guide on how to operate ThingPark FUOTA",
+  "main": "index.js",
+  "authors": {
+    "name": "Baptiste Lecuyer",
+    "email": ""
+  },
+  "repository": "/fuota-documentation",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "vuepress-theme-actility": "^6.9.0"
+  }
+}
