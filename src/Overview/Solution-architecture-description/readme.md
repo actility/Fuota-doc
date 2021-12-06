@@ -1,4 +1,4 @@
-# ThingPark FUOTA solution architecture description #test
+# ThingPark FUOTA solution architecture description
 
 The ThingPark FUOTA solution is composed of the following components:
 
