@@ -6,7 +6,6 @@ Before provisioning the device in ThingPark FUOTA server, the device
 must be provisioned in the LoRaWAN network using the ThingPark Wireless
 platform.
 
-
 1.  Provision the device in ThingPark Wireless. You can provision
     devices one by one or by mass import. Refer to *ThingPark Wireless
     Device Manager User Guide* for full details.

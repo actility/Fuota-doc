@@ -13,15 +13,16 @@ module.exports = {
   globalUIComponents: [
     'Emojicom'
   ],
+  plugins: ['versioning'],
 
   themeConfig: {
     logo: '/img/DesktopBanner.png',
     emojicomKey: '24lr9TXIVpwrZ8KvVCll',
-    repo: 'https://github.com/actility/tpx-iot-flow-doc',
+    repo: 'https://github.com/actility/Fuota-doc',
     repoLabel: 'Contribute!',
-    docsRepo: 'https://github.com/actility/tpx-iot-flow-doc',
-    docsDir: 'docs',
-    docsBranch: 'master',
+    docsRepo: 'https://github.com/actility/Fuota-doc',
+    docsDir: 'src',
+    docsBranch: 'main',
     editLinks: true,
     editLinkText: 'Edit on GitHub',
     lastUpdated: 'Last Updated',
