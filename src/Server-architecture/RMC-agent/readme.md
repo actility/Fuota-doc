@@ -35,7 +35,7 @@ container.
 
 ## RMC Agent to LRC API
 
-RMC Agent uses the LRC-AS Tunnel Interface v5.2 as an API between Agent
+RMC Agent uses the LRC-AS Tunnel Interface v6.1 as an API between Agent
 and LRC. RMC Agent could be configured to use either HTTP or HTTPS as
 transport protocol. The Transport protocol type which will be used by
 RMC Agent derives from LRC url that is configured for a given
