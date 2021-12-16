@@ -6,13 +6,11 @@ var version = fs.readFileSync('version.txt', 'utf8').trim();
 
 
 module.exports = {
-  theme: 'vuepress-theme-actility',
+  theme: getPackage().theme,
   description: description,
   base: getBase(),
   title: getTitle,
-  globalUIComponents: [
-    'Emojicom'
-  ],
+  globalUIComponents: ['Emojicom'],
   plugins: ['versioning'],
 
   themeConfig: {
@@ -26,6 +24,8 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Edit on GitHub',
     lastUpdated: 'Last Updated',
+    informationDeep: deepData(),
+    smoothScroll: true,
     nav: [
       {
         text: 'Documentation portal', link: 'https://www.actility.com/thingpark-documentation-portal/', target: '_blank'
@@ -214,10 +214,46 @@ module.exports = {
   },
 }
 
+function getPackage() {
+  var options = {}
+  const resultPackages = require('minimist')(process.argv.slice(2))._[2]
+  if (resultPackages) {
+      options['theme'] = resultPackages
+      options['banner'] = '/img/DesktopBanner-' + resultPackages + '.png'
+      return options
+  } else {
+      options['theme'] = 'actility'
+      options['banner'] = '/img/DesktopBanner-actility.png'
+      return options
+  }
+}
+
 function getTitle() {
   return 'ThingPark FUOTA (' + version + ')';
 }
 
+function deepData(){
+
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear()
+  var hh = String(today.getHours()).padStart(2, '0');
+  var min = String(today.getMinutes()).padStart(2, '0');
+  var ss = String(today.getSeconds()).padStart(2, '0');
+  let objectJson = {
+      currentDate : {
+          Year: yyyy,
+          Month : mm,
+          Day : dd,
+          Hours: hh,
+          Minutes : min,
+          Secondes:ss
+      },
+      currentPackage : JSON.parse(fs.readFileSync('./package.json', 'utf8').trim())
+  }
+  return objectJson
+}
 
 function getBase() {
   if (version.endsWith("-SNAPSHOT")) {
