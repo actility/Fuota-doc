@@ -4,9 +4,9 @@
 
 FUOTA Server consists of 3 major components:
 
--  [Core](/FUOTA-server-architecture/RMC-core/)
--  [Agent](/FUOTA-server-architecture/RMC-agent/)
--  [Relational Database (MariaDB)](/FUOTA-server-architecture/FUOTA-database/)
+-  [Core](/Server-architecture/RMC-core/)
+-  [Agent](/Server-architecture/RMC-agent/)
+-  [Relational Database (MariaDB)](/Server-architecture/FUOTA-database/)
 
 The User Interface is implemented as a WEB browser application based on
 Angular 4 framework and uses Core module REST API to interact with Core.
