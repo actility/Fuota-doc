@@ -91,7 +91,7 @@ http:{
 		bind_address: \"0.0.0.0\",
 		pool_size: 4,
 		ssl: true,
-                cert: "/opt/agent/config/server.pem",
+		cert: "/opt/agent/config/server.pem",
 		key: "/opt/agent/config/server.key"
 }
 global:{
