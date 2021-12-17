@@ -123,7 +123,6 @@ global:{
 		fsize_optimization: 4, // fsize optimizated by this value, 0 disable option (default)
 		time_sync_tolerance: 1, // time tolerance will be used for time sync req processing if device is unknown for agent instance (seconds)
 		fsize: 50, 				// fixed fsize value (optional)
-		retry_ineligible_gateways: 1 // optional. if enabled (1) query parameter
-RetryIneligibleGateways=0 will be added to multicast downlink request sent to LRC
+		retry_ineligible_gateways: 1 // optional. if enabled (1) query parameter RetryIneligibleGateways=0 will be added to multicast downlink request sent to LRC
 }
 ```
