@@ -41,9 +41,6 @@ transport protocol. The Transport protocol type which will be used by
 RMC Agent derives from LRC url that is configured for a given
 Subscriber.
 
-Agent currently does not support token authentication with LRC via the
-LRC-AS tunnel interface. It will be supported in future releases.
-
 RMC Agent supports following types of uplink AS-LRC tunnel messages.
 
 -   Uplink frame report messages directed to ports 200, 201 and 203
@@ -70,7 +67,3 @@ encrypted by RMC Agent or sent in clear and encrypted by LRC depending
 on RMC Agent configuration. Currently RMC Agent does not support OTAA
 devices with SSM/HSM. Their support will be implemented in future
 releases.
-
-## RMC Agent stateless operation
-
-It will be supported in future releases.
