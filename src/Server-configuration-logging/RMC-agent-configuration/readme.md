@@ -22,8 +22,12 @@ bring RMC Agent down and customize `config.ini`.
 | **http: port**                         | Port number on which the Agent listens incoming tunnel interface messages from LRC Server. |
 | **http: bind_address**                 | Local interface IP address on which Agent will receive tunnel interface messages from LRC Server |
 | **http: pool_size**                    | Size of Agent input HTTP pool. Agent will start up to this number of threads to process incoming messages. |
+| **http: ssl**                    | Enables connection to agent via HTTPS. If set to 'true', 'http: key' and 'http: cert' parameters should be specified. |
+| **http: cert**                    | File containing SSL server certificate in PEM format. Full path to the file inside the container filesystem should be specified. File itself should be placed in agent/config folder. |
+| **http: key**                    | File containing SSL server private key in PEM format. Full path to the file inside the container filesystem should be specified. File itself should be placed in agent/config folder. |
 | **global: logging-level**              | Logging details level. 0 – less detailed log.                |
 | **global: instance_id**                | RMC Agent unique id which is used in multiple agent configuration to reference the given Agent from RMC Core. |
+| **global: summary_reports_security_bug**                | Enables workaround for LRC multicast summary reports security token miscalculation in TPW 6.1 .	|
 | **global: fucport**                    | Device application port which RMC Agent uses to send and receive Multicast Control Package messages. |
 | **global: fmcport**                    | Device application port that RMC Agent uses to send and receive Fragmentation Transport Package message. |
 | **global: aclksynport**                | Device application port that RMC Agent uses to send and receive Application Clock Synchronization message. |
@@ -86,10 +90,14 @@ http:{
 		port: 8082,
 		bind_address: \"0.0.0.0\",
 		pool_size: 4,
+		ssl: true,
+                cert: "/opt/agent/config/server.pem",
+		key: "/opt/agent/config/server.key"
 }
 global:{
 		logging_level: 0
 		instance_id: \"agent0\", // lrc_url: \"http://172.16.12.9:8807/sensor\",
+		summary_reports_security_bug: 1,
 		fucport: 200, 		// unicast port
 		fmcport: 201, 		// multicast port
 		fdmport: 203, 		// device management port
