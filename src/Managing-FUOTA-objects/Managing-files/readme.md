@@ -150,6 +150,14 @@ smaller in size than a full firmware file.
 
 5.  On the last screen check that all entered parameters are correct and
     press DONE to complete delta patch creation.
+    
+:::warning IMPORTANT
+
+   To generate a smart delta patch compatible with Actility smart delta 
+   library, set the correct "MCU type" in the Device Profile.
+   Currently, only "ST Micro - STM32L4" is supported.
+   
+   :::
 
 ## Browsing files
 
