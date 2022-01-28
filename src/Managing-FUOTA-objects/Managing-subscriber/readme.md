@@ -1,7 +1,7 @@
 # Managing subscriber
 
 Subscriber configuration defines various parameters defining external 
-system parameters relevant to given subscriber.
+system parameters.
 
 1.  Select *Subscriber config* and set the following
     information:
