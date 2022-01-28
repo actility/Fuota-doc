@@ -57,8 +57,12 @@ module.exports = {
           title: 'Managing objects',
           path: '/Managing-FUOTA-objects/',
           collapsable: true,
-          sidebarDepth: 7,
+          sidebarDepth: 6,
           children: [
+            {
+              title: 'Managing subscriber',
+              path: '/Managing-FUOTA-objects/Managing-subscriber/',
+            },
             {
               title: 'Managing Smart Delta keys',
               path: '/Managing-FUOTA-objects/Managing-smart-delta-keys/',
