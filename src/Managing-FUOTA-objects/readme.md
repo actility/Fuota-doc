@@ -1,6 +1,7 @@
 # Managing objects in ThingPark FUOTA
 
 Managing objects includes provisioning, creating and/or browsing the following objects:
+- [Subscriber](/Managing-FUOTA-objects/Managing-subscriber/)
 - [Smart Delta keys](/Managing-FUOTA-objects/Managing-smart-delta-keys/)
 - [Device profiles](/Managing-FUOTA-objects/Managing-device-profiles/)
 - [Devices](/Managing-FUOTA-objects/Managing-devices/)
