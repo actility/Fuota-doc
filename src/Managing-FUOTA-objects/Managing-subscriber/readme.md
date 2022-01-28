@@ -14,3 +14,5 @@ system parameters.
     -   **License**: license configured for Subscriber by platform administrator – read-only
     -   **Maximum Number Of Devices**: maximum number of device which could be used by Subscriber; defined in license provisioned – read-only
     -   **Maximum Number Of Multicast Groups**: maximum number of multicast groups which could be used by Subscriber; defined in license provisioned – read-only
+
+![](./images/image038.png)
