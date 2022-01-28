@@ -138,86 +138,95 @@ Field required in configuration messages are the following.
 | **sessionDate**      | Session start date for BINARY and FOTA campaigns             |
 | **sessionTime**      | Session start time for BINARY and FOTA campaigns             |
 
-10. "lrc" field: Array of LRC URLs which agent should use. Required for all campaigns.
+10. "lrc" field: Array of LRC URLs which agent should use and optional AS security parameters. Required for all campaigns.
 
+
+| "lrc" field      | Description                                                  |
+| ---------------- | ------------------------------------------------------------ |
+| **asId**         | Optional AS ID field configured in subscriber account |
+| **asKey**        | Optional AS KEY field configured in subscriber account |
+| **url**          | LRC URL used to send downlink messages in given Campaign |
 
 Example of ADD campaign configuration message
 
 ```json
 {
-\"action\":\"ADD\",
-\"targetType\":\"CAMPAIGN\",
-\"campaignId\":123,
-\"msgId\":12,
-\"time\":\"2017-10-31T23:50:40.987+0300\",
-\"campaignType\":\"BINARY\",
-\"devices\": \[{
-	\"eui\": \"18b20000000001\",
-	\"mcGroup\":\"18b200000000fd\",
-	\"mcKeKey\": \"2b7e151628aed216abf7158809cf4f00\",
-	\"loraWanScheme\": \"1.0\",
-	\"options\": {
-		\"uplinkRate\": 10
+"action":"ADD",
+"targetType":"CAMPAIGN",
+"campaignId":123,
+"msgId":12,
+"time":"2017-10-31T23:50:40.987+0300",
+"campaignType":"BINARY",
+"devices": [{
+	"eui": "18b20000000001",
+	"mcGroup":"18b200000000fd",
+	"mcKeKey": "2b7e151628aed216abf7158809cf4f00",
+	"loraWanScheme": "1.0",
+	"options": {
+		"uplinkRate": 10
 }
 },{
-	\"eui\": \"18b20000000002\",
-	\"mcGroup\":\"18b200000000fe\",
-	\"loraWanScheme\": \"1.0\"
-	\"genAppKey\": \"2b7e151628aed216abf7158809cf4f00\",
-}\],
-\"mcGroups\": \[{
-	\"eui\": \"18b200000000fe\",
-	\"netAddr\": \"040010F2\",
-	\"mcKey\":\"000102030405060708090a0b0c0d0e0f\",
-	\"options\": {
-		\"drate\": 3,
-		\"downlinkDwellTime\": 0,// optional
-		\"redundancy\": 0,
-		\"freq\": 8681000,
-		\"rfRegion\":\"EU868\"
+	"eui": "18b20000000002",
+	"mcGroup":"18b200000000fe",
+	"loraWanScheme": "1.0"
+	"genAppKey": "2b7e151628aed216abf7158809cf4f00",
+}],
+"mcGroups": [{
+	"eui": "18b200000000fe",
+	"netAddr": "040010F2",
+	"mcKey":"000102030405060708090a0b0c0d0e0f",
+	"options": {
+		"drate": 3,
+		"downlinkDwellTime": 0,
+		"redundancy": 0,
+		"freq": 8681000,
+		"rfRegion":"EU868"
 		}
 	},{
-	\"eui\": \"18b200000000fd\",
-	\"netAddr\": \"040010F2\",
-	\"mcKey\":\"000102030405060708090a0b0c0d0e0f\",
-	\"options\": {
-		\"drate\": 3,
-		\"redundancy\": 0,
-		\"freq\": 8681000,
-		\"rfRegion\":\"EU868\"
+	"eui": "18b200000000fd",
+	"netAddr": "040010F2",
+	"mcKey":"000102030405060708090a0b0c0d0e0f",
+	"options": {
+		"drate": 3,
+		"redundancy": 0,
+		"freq": 8681000,
+		"rfRegion":"EU868"
 	}
-}\],
-\"options\": {
-	\"fwVersion\": \"255.255.255.255\",
-	\"hwTarget\":\"FF:FF:FF:FF:FF:FF\",
-	\"entrypoint\": \"08008000\",
-	\"updateType\":\"PLAIN\",
-	\"fwReqVersion\": \"255.255.255.255\",
-	\"maxDuration\": 300,
-	\"successThreshold\": 50
-	\"rebootDate\": \"1970-01-01\"
-	\"rebootTime\": \"15:30:00\"
-	\"sessionDate\": \"1970-01-01\"
-	\"sessionTime\": \"15:30:00\"
+}],
+"options": {
+	"fwVersion": "255.255.255.255",
+	"hwTarget":"FF:FF:FF:FF:FF:FF",
+	"entrypoint": "08008000",
+	"updateType":"PLAIN",
+	"fwReqVersion": "255.255.255.255",
+	"maxDuration": 300,
+	"successThreshold": 50
+	"rebootDate": "1970-01-01"
+	"rebootTime": "15:30:00"
+	"sessionDate": "1970-01-01"
+	"sessionTime": "15:30:00"
 },
-\"lrc\": \[{
-		\"url\": \"https://172.16.12.9:8807/sensor\"
-}\],
-\"binary\":{
-	\"data\":\"Qk2GrgEAAAAAADYA\...\"
-	}
+"lrc": [{
+      "asId": "TWA_1100000000.1.AS",
+      "asKey": "82-5b-6c-8f-22-a8-10-76-67-c3-41-29-00-34-bf-6f",
+      "url": "https://dev1.thingpark.com/thingpark/lrc/rest/downlink"
+}],
+"binary":{
+	"data":"Qk2GrgEAAAAAADYA..."
+}
+}
 ```
 
 Example of STOP campaign configuration messages
 
 ```json
 {
-	\"action\":\"STOP\",
-	\"targetType\":\"CAMPAIGN\",
-	\"campaignId\":2,
-	\"msgId\":12,
-	\"options\":{
-	}
+	"action":"STOP",
+	"targetType":"CAMPAIGN",
+	"campaignId":2,
+	"msgId":12,
+	"options":{
+}
 }
 ```
 
@@ -226,13 +235,13 @@ campaign type.
 
 ```json
 {
-\"action\": \"GET\",
-\"targetType\": \"CAMPAIGN\",
-\"msgId\": 12,
-\"campaignType\":\"MCGROUP\",
-\"devices\": \[{
-	\"uplinkRate\": 10
-}\]
+"action": "GET",
+"targetType": "CAMPAIGN",
+"msgId": 12,
+"campaignType":"MCGROUP",
+"devices": [{
+	"uplinkRate": 10
+}]
 }
 ```
 
@@ -241,33 +250,33 @@ campaign type.
 
 ```json
 {
-\"action\": \"GET\",
-\"targetType\": \"CAMPAIGN\",
-\"msgId\": 12
-\"campaignType\":\"BINARY\",
-\"devices\": \[{
-	\"uplinkRate\": 123, //\"the greatest uplink rate in the devices list\"
-}\],
-\"mcGroups\": \[{
-	\"sessionClass\": \"C\",
-	\"options\": {
-		\"drate\": 3,
-		\"downlinkDwellTime\": 0,
-		\"redundancy\": 0,
-		\"freq\": 868100000,
-		\"rfRegion\":\"EU868\"
-	}
+"action": "GET",
+"targetType": "CAMPAIGN",
+"msgId": 12
+"campaignType":"BINARY",
+"devices": [{
+	"uplinkRate": 123, "the greatest uplink rate in the devices list"
+}],
+"mcGroups": [{
+	"sessionClass": "C",
+	"options": {
+		"drate": 3,
+		"downlinkDwellTime": 0,
+		"redundancy": 0,
+		"freq": 868100000,
+		"rfRegion":"EU868"
+}
 },{
-	\"sessionClass\": \"C\",
-	\"options\": {
-	\"drate\": 3,
-	\"redundancy\": 0,
-	\"freq\": 868100000,
-	\"rfRegion\":\"EU868\"
-	}
-}\],
-\"binary\": {
-	\"size\": 1024
+	"sessionClass": "C",
+	"options": {
+	"drate": 3,
+	"redundancy": 0,
+	"freq": 868100000,
+	"rfRegion":"EU868"
+}
+}],
+"binary": {
+	"size": 1024
 }
 }
 ```
@@ -307,21 +316,21 @@ Example of stage start status progress message.
 
 ```json
 {
-\"version\": \"0.2.2\",
-\"time\": \"2019-07-18T17:35:13.366+0300\",
-\"campaignId\": 207,
-\"campaignStagesCount\": 7,
-\"campaignStagesCompleted\": 6,
-\"campaignStatus\": \"RUNNING\",
-\"stage\": {
-\"stageId\": 6,
-\"stageName\": \"DevVersion\",
-\"stageNum\": 7,
-\"stageProgress\": 0,
-\"stageOperationsTotal\": 3,
-\"stageOperationsCompleted\": 0,
-\"stageStatus\": \"RUNNING\",
-\"stageStartTime\": \"2019-07-18T17:35:24.000+0300\"
+"version": "0.2.2",
+"time": "2019-07-18T17:35:13.366+0300",
+"campaignId": 207,
+"campaignStagesCount": 7,
+"campaignStagesCompleted": 6,
+"campaignStatus": "RUNNING",
+"stage": {
+	"stageId": 6,
+	"stageName": "DevVersion",
+	"stageNum": 7,
+	"stageProgress": 0,
+	"stageOperationsTotal": 3,
+	"stageOperationsCompleted": 0,
+	"stageStatus": "RUNNING",
+	"stageStartTime": "2019-07-18T17:35:24.000+0300"
 }
 }
 ```
@@ -329,23 +338,24 @@ Example of stage start status progress message.
 Example of the device status update progress message.
 
 ```json
-\"version\": \"0.2.1\",
-\"time\": \"2018-05-07T14:50:45.050+0300\",
-\"campaignId\": 123,
-\"campaignStagesCount\": 5,
-\"campaignStagesCompleted\": 1,
-\"campaignStatus\": \"COMPLETED\",
-\"stage\": {
-\"stageId\": 1,
-\"stageName\": \"McGroupSetup\",
-\"stageProgress\": 50,
-\"stageOperationsTotal\": 2,
-\"stageOperationsCompleted\": 1,
-\"stageStatus\": \"COMPLETED\"
+{
+"version": "0.2.1",
+"time": "2018-05-07T14:50:45.050+0300",
+"campaignId": 123,
+"campaignStagesCount": 5,
+"campaignStagesCompleted": 1,
+"campaignStatus": "COMPLETED",
+"stage": {
+	"stageId": 1,
+	"stageName": "McGroupSetup",
+	"stageProgress": 50,
+	"stageOperationsTotal": 2,
+	"stageOperationsCompleted": 1,
+	"stageStatus": "COMPLETED"
 },
-\"deveui\": \"18b20000000001\",
-\"deviceState\": {
-\"deviceStatus\": \"COMPLETED\"
+"deveui": "18b20000000001",
+"deviceState": {
+	"deviceStatus": "COMPLETED"
 }
 }
 ```
@@ -356,24 +366,24 @@ upgraded.
 
 ```json
 {
-\"version\": \"0.2.1\",
-\"time\": \"2018-05-07T14:50:45.050+0300\",
-\"campaignId\": 123,
-\"campaignStagesCount\": 5,
-\"campaignStagesCompleted\": 1,
-\"campaignStatus\": \"COMPLETED\",
-\"stage\": {
-	\"stageId\": 1,
-	\"stageName\": \"McGroupSetup\",
-	\"stageProgress\": 50,
-	\"stageOperationsTotal\": 2,
-	\"stageOperationsCompleted\": 1,
-	\"stageStatus\": \"COMPLETED\"
+"version": "0.2.1",
+"time": "2018-05-07T14:50:45.050+0300",
+"campaignId": 123,
+"campaignStagesCount": 5,
+"campaignStagesCompleted": 1,
+"campaignStatus": "COMPLETED",
+"stage": {
+	"stageId": 1,
+	"stageName": "McGroupSetup",
+	"stageProgress": 50,
+	"stageOperationsTotal": 2,
+	"stageOperationsCompleted": 1,
+	"stageStatus": "COMPLETED"
 },
-\"deveui\": \"18b20000000001\",
-\"deviceState\": {
-	\"deviceStatus\": \"PROCESSED\",
-	\"fwVersion\": \"1.2.3.4\"
+"deveui": "18b20000000001",
+"deviceState": {
+	"deviceStatus": "PROCESSED",
+	"fwVersion": "1.2.3.4"
 }
 }
 ```
@@ -383,23 +393,23 @@ information about "fCntDown" multicast group downlink frames counter.
 
 ```json
 {
-\"version\": \"0.2.1\",
-\"time\": \"2018-05-07T14:51:14.055+0300\",
-\"campaignId\": 123,
-\"campaignStagesCount\": 5,
-\"campaignStagesCompleted\": 4,
-\"campaignStatus\": \"RUNNING\",
-\"stage\": {
-	\"stageId\": 4,
-	\"stageName\": \"DataFragment\",
-	\"stageProgress\": 0,
-	\"stageOperationsTotal\": 2,
-	\"stageOperationsCompleted\": 0,
-	\"stageStatus\": \"COMPLETED\"
+"version": "0.2.1",
+"time": "2018-05-07T14:51:14.055+0300",
+"campaignId": 123,
+"campaignStagesCount": 5,
+"campaignStagesCompleted": 4,
+"campaignStatus": "RUNNING",
+"stage": {
+	"stageId": 4,
+	"stageName": "DataFragment",
+	"stageProgress": 0,
+	"stageOperationsTotal": 2,
+	"stageOperationsCompleted": 0,
+	"stageStatus": "COMPLETED"
 },
-\"mcGroupEui\": \"18b200000000fd\",
-\"mcGroupState\": {
-	\"fCntDown\": 131076
+"mcGroupEui": "18b200000000fd",
+"mcGroupState": {
+	"fCntDown": 131076
 }
 }
 ```
@@ -408,24 +418,24 @@ Example of the stage error progress message.
 
 ```json
 {
-\"version\": \"0.2.1\",
-\"time\": \"2018-05-07T14:48:44.642+0300\",
-\"campaignId\": 123,
-\"campaignStagesCount\": 5,
-\"campaignStagesCompleted\": 1,
-\"campaignStatus\": \"ERROR\",
-\"error\": {	
-	\"source\": \"AGENT\",	
-	\"text\": \"stage is timed out\"
+"version": "0.2.1",
+"time": "2018-05-07T14:48:44.642+0300",
+"campaignId": 123,
+"campaignStagesCount": 5,
+"campaignStagesCompleted": 1,
+"campaignStatus": "ERROR",
+"error": {
+	"source": "AGENT",
+	"text": "stage is timed out"
 },
-\"stage\": {	
-	\"stageId\": 1,	
-	\"stageName\": \"McGroupSetup\",	
-	\"stageProgress\": 50,	
-	\"stageOperationsTotal\": 2,	
-	\"stageOperationsCompleted\": 1,	
-	\"stageStatus\": \"ERROR\"	
-	}
+"stage": {
+	"stageId": 1,
+	"stageName": "McGroupSetup",
+	"stageProgress": 50,
+	"stageOperationsTotal": 2,
+	"stageOperationsCompleted": 1,
+	"stageStatus": "ERROR"
+}
 }
 ```
 
@@ -433,24 +443,24 @@ Example of the campaign error progress message.
 
 ```json
 {
-\"version\": \"0.2.1\",
-\"time\": \"2018-05-07T14:48:44.642+0300\",
-\"campaignId\": 123,
-\"campaignStagesCount\": 5,
-\"campaignStagesCompleted\": 1,
-\"campaignStatus\": \"ERROR\",
-\"error\": {	
-	\"source\": \"AGENT\",	
-	\"text\": \"campaign is timed out\"
+"version": "0.2.1",
+"time": "2018-05-07T14:48:44.642+0300",
+"campaignId": 123,
+"campaignStagesCount": 5,
+"campaignStagesCompleted": 1,
+"campaignStatus": "ERROR",
+"error": {
+	"source": "AGENT",
+	"text": "campaign is timed out"
 },
-\"stage\": {	
-	\"stageId\": 1,	
-	\"stageName\": \"McGroupSetup\",	
-	\"stageProgress\": 50,	
-	\"stageOperationsTotal\": 2,	
-	\"stageOperationsCompleted\": 1,	
-	\"stageStatus\": \"COMPLETED\"	
-	}
+"stage": {
+	"stageId": 1,
+	"stageName": "McGroupSetup",
+	"stageProgress": 50,
+	"stageOperationsTotal": 2,
+	"stageOperationsCompleted": 1,
+	"stageStatus": "COMPLETED"
+}
 }
 ```
 
@@ -458,28 +468,28 @@ Example of the device status update progress message with error.
 
 ```json
 {
-\"version\": \"0.2.1\",
-\"time\": \"2018-05-07T14:50:45.050+0300\",
-\"campaignId\": 123,
-\"campaignStagesCount\": 5,
-\"campaignStagesCompleted\": 1,
-\"campaignStatus\": \"RUNNING\",
-\"stage\": {	
-	\"stageId\": 1,	
-	\"stageName\": \"McGroupSetup\",	
-	\"stageProgress\": 50,	
-	\"stageOperationsTotal\": 2,	
-	\"stageOperationsCompleted\": 1,	
-	\"stageStatus\": \"RUNNING\"
+"version": "0.2.1",
+"time": "2018-05-07T14:50:45.050+0300",
+"campaignId": 123,
+"campaignStagesCount": 5,
+"campaignStagesCompleted": 1,
+"campaignStatus": "RUNNING",
+"stage": {
+	"stageId": 1,
+	"stageName": "McGroupSetup",
+	"stageProgress": 50,
+	"stageOperationsTotal": 2,
+	"stageOperationsCompleted": 1,
+	"stageStatus": "RUNNING"
 },
-\"deveui\": \"18b20000000001\",
-\"deviceState\": {	
-	\"deviceStatus\": \"ERROR\"
+"deveui": "18b20000000001",
+"deviceState": {
+	"deviceStatus": "ERROR"
 },
-\"error\":{	
-	\"source\": \"DEVICE\",	
-	\"text\":\"UpFCounter is no longer available\"	
-	}
+"error":{
+	"source": "DEVICE",
+	"text":"UpFCounter is no longer available"
+}
 }
 ```
 
@@ -498,11 +508,11 @@ Metrics messages includes the following fields.
 Example of the metrics message.
 
 ```json
-{	
-	\"time\":\"2017-10-31T23:50:40.987+0300\",		
-		\"version\":\"0.2.1\",		
-		\"instanceId\":\"instance0\",	
-	\"uplinksAbs\": 123,	
-	\"downlinksAbs\": 13
+{
+"time":"2017-10-31T23:50:40.987+0300",
+"version":"0.2.1",
+"instanceId":"instance0",
+"uplinksAbs": 123,
+"downlinksAbs": 13
 }
 ```
