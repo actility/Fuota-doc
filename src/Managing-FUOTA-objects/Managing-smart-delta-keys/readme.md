@@ -2,7 +2,7 @@
 
 Smart Delta keys are used to verify that a Smart Delta patch received by
 a device has been created by a legitimate FUOTA Server. This
-verification is leverages an ECDSA signature created using a "Smart
+verification leverages an ECDSA signature created using a "Smart
 Delta key" and appended to the patch binary by the FUOTA server. At the
 end of a FUOTA campaign, devices verify the signature using the Smart
 Delta public key which is embedded into Smart Delta library.
