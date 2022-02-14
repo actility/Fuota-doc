@@ -15,7 +15,7 @@ module.exports = {
 
   themeConfig: {
     logo: '/img/DesktopBanner.png',
-    emojicomKey: '24lr9TXIVpwrZ8KvVCll',
+    emojicomKey: '1pX9rv928KBJJgpP8W2e',
     repo: 'https://github.com/actility/Fuota-doc',
     repoLabel: 'Contribute!',
     docsRepo: 'https://github.com/actility/Fuota-doc',
@@ -57,10 +57,10 @@ module.exports = {
           title: 'Managing objects',
           path: '/Managing-FUOTA-objects/',
           collapsable: true,
-          sidebarDepth: 6,
+          sidebarDepth: 8,
           children: [
             {
-              title: 'Managing subscriber',
+              title: 'Managing Subscriber',
               path: '/Managing-FUOTA-objects/Managing-subscriber/',
             },
             {
