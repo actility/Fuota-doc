@@ -1,4 +1,4 @@
-# Managing device profiles
+# Managing device profiles (Test of modification)
 
 Device profile are associated to devices to bind the device to a given
 firmware file, and also to provide parameters which are specific to
