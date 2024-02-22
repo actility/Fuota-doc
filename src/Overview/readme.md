@@ -8,15 +8,15 @@ LoRAWAN devices over the air during their lifecycle:
 -   The FUOTA function manages firmware upgrades, and also provides an
     optional differential firmware upgrade ("Smart Delta") function.
 
-The RMC features include:
+FUOTA service includes:
 
 -   Coordination of Device and Multicast Group data with ThingPark
-    Wireless
--   Management of Reliable Multicast groups and configuration of
+    Wireless and ThingPark Enterprise
+-   Management of Multicast groups and configuration of
     reliable multicast client devices to add or remove them from the
     groups
 -   Orchestration and monitoring of FUOTA campaigns
--   Management of Reliable Multicast sessions using LoRaWAN class B or
+-   Management of Multicast sessions using LoRaWAN class B or
     class C
     -   Multicast Optimization of battery and radio consumption during
         RMC campaigns
@@ -25,7 +25,7 @@ The RMC features include:
 -   Management file fragmentation sessions and adding of redundancy
     information
 
-The FUOTA features are built on top of RMC function and include:
+Following features are also included:
 
 - Device reference firmware repository
 - Auditing of device firmware versions
@@ -33,12 +33,12 @@ The FUOTA features are built on top of RMC function and include:
 - Generation of Smart Delta firmware patches
 - Encryption and electronic signature of firmware updates and patches
 
-The ThingPark FUOTA is a standalone application server that interacts with
+ThingPark FUOTA is a standalone application server that interacts with
 ThingPark LoRaWAN® network server to control end devices, set of end
 devices, multicast groups, regions and campaigns.
 
 Subscribers interact with ThingPark FUOTA server through a Web User
-Interface that allows to easily create and manage update campaigns. All
+Interface that allows easy creation and management of campaigns. All
 operations are also available via API, refer to FUOTA API description for more details.
 
 The figure below illustrates the various objects managed by ThingPark
