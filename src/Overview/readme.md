@@ -44,4 +44,4 @@ operations are also available via API, refer to FUOTA API description for more d
 The figure below illustrates the various objects managed by ThingPark
 FUOTA server and their relationships.
 
-![](./images/image006.png)
+![](./images/Fuota_Overview.png)
