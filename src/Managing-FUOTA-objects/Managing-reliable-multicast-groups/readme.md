@@ -61,7 +61,7 @@ retrieved then to provision multicast groups in ThingPark Wireless.
     Multicast Class B and RX2 frequency for Multicast Class C, refer to
     LoRaWAN® Regional Parameter for complete description of this field
     in different ISM bands
-    -   **Redundancy**: ratio of uncoded fragments over total number of
+    -   **Redundancy**: ratio of coded fragments over total number of
     fragments. Example: 50% means that for every uncoded fragment, a
     coded fragment is added.
     -   **McKey**: 128-bit multicast master key used during Multicast session.
